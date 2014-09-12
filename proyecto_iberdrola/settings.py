@@ -1,5 +1,5 @@
 """
-Django settings for inventario_iberdrola project.
+Django settings for proyecto_iberdrola project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -48,9 +48,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'inventario_iberdrola.urls'
+ROOT_URLCONF = 'proyecto_iberdrola.urls'
 
-WSGI_APPLICATION = 'inventario_iberdrola.wsgi.application'
+WSGI_APPLICATION = 'proyecto_iberdrola.wsgi.application'
 
 
 # Database
