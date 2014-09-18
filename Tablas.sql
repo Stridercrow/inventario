@@ -48,33 +48,41 @@ alter table Equipo add constraint Equipo_ubi foreign key (ID_ubi) references Ubi
 alter table Equipo add constraint Equipo_tip foreign key (ID_tip) references Tipo(ID_tip);
 alter table Equipo add constraint Equipo_ref foreign key (ID_ref) references Referencia(ID_ref);
 
-'Búsqueda por id corporativo o serial'
+'Búsqueda por id corporativo'
 
-select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_camb, u.Nombre, r.nombre from Equipo e, Tipo t, Ubicacion u,
-Referencia r
-where e.ID_corp like '%'<texto>'%' or
-e.Serial_n like '%'<texto>'%'
-e.ID_tip = t.ID_tip and
-e.ID_ubi = u.ID_ubi and
-e.ID_ref = r.ID_ref
+select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_cam, u.Nombre, r.nombre from Inventario_Equipo e, Inventario_Tipo t, Inventario_Ubicacion u,
+Inventario_Referencia r
+where e.ID_corp like '%515%' and
+e.ID_tip = t.ID and
+e.ID_ubi = u.ID and
+e.ID_ref= r.ID
+
+'Búsqueda por Serial_n'
+
+select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.id_usr,e.Fec_cam, u.Nombre, r.nombre from Inventario_Equipo e, Inventario_Tipo t, Inventario_Ubicacion u,
+Inventario_Referencia r
+where e.Serial_n like '%515%' and
+e.ID_tip = t.ID and
+e.ID_ubi = u.ID and
+e.ID_ref= r.ID
 
 'Búsqueda por ubicación'
 
-select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_camb, r.nombre from Equipo e, Tipo t, Ubicacion u,
-Referencia r
+select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_camb, r.nombre from Inventario_Equipo e, Inventario_Tipo t, Inventario_Ubicacion u,
+Inventario_Referencia r
 where u.nombre = <texto> and
-e.ID_tip = t.ID_tip and
-e.ID_ubi = u.ID_ubi and
-e.ID_ref = r.ID_ref
+e.ID = t.ID and
+e.ID = u.ID and
+e.ID = r.ID
 
 'Búsqueda por usuario'
 
-select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_camb, u.Nombre, r.nombre from Equipo e, Tipo t, Ubicacion u,
-Referencia r
+select t.marca, t.Modelo, e.Serial_n, e.ID_corp, e.Usr_act, e.Fec_camb, u.Nombre, r.nombre from Inventario_Equipo e, Inventario_Tipo t, Inventario_Ubicacion u,
+Inventario_Referencia r
 where e.usr_act like '%'<texto>'%' and
-e.ID_tip = t.ID_tip and
-e.ID_ubi = u.ID_ubi and
-e.ID_ref = r.ID_ref
+e.ID = t.ID and
+e.ID = u.ID and
+e.ID = r.ID
 
 'Agregar ubicaciones desde archivo csv'
 sqlldr inv_adm@XE control='C:\Users\Omarcin\Dropbox\Inventario - Iberdrola\Base de datos\carga_ubicaciones.ctl' skip=1

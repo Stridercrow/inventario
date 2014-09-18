@@ -8,11 +8,11 @@ class Equipo(models.Model):
 	usr_ant1 = models.CharField(max_length=40)
 	usr_ant2 = models.CharField(max_length=40)
 	usr_ant3 = models.CharField(max_length=40)
-	fec_cam  = models.DateField(auto_now=True)
+	fec_cam  = models.DateField()
 	observ   = models.CharField(max_length=100)
-	id_ubi   = models.ForeignKey('Ubicacion')	
-	id_tip   = models.ForeignKey('Tipo')
-	id_ref   = models.ForeignKey('Referencia')
+	id_ubi	 = models.IntegerField()
+	id_tip   = models.IntegerField()
+	id_ref   = models.IntegerField()
 
 class Ubicacion(models.Model):	
 	nombre    = models.CharField(max_length=20)

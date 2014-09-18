@@ -24,6 +24,10 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
+TEMPLATE_DIRS = (
+    'C:/Users/Omarcin/Dropbox/Desarrollo/Django/templates/iberdrola',
+)
+
 ALLOWED_HOSTS = []
 
 
@@ -58,8 +62,12 @@ WSGI_APPLICATION = 'proyecto_iberdrola.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.oracle',
+        'NAME': 'XE',
+        'USER': 'INV_ADM',
+        'PASSWORD': '0m4rc1nb4u',
+        'HOST': 'Omarcin-PC',
+        'PORT': '1521',       
     }
 }
 
